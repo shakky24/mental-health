@@ -3,34 +3,35 @@ import Button from './Button'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './Item.css'
 
-const Item = ({backgroundImg}) => {
+const Item = ({ title, desc, backgroundImg, descLink, leftBtnTxt,leftBtnLink, rightBtntxt, rightBtnLink, twoButtons, first}) => {
   return (
     <div className = 'item' style = {{
-      backgroundImage: 'url(${backgroundImg})'
-
+      backgroundImage : `url(${backgroundImg})`
     }}>
-    </div>
-    // <div className = "item__container">
-    //   <div className = "item__text">
-    //     <p>Title</p>
-    //     <div className = "item__textDesc">
-    //       <p>Desc</p>
-    //     </div>
-    //   </div>
-    //   <div className = 'item__lowerThird'>
-    //     <div className = 'item__buttons'>
-    //       <Button imp = 'primary' text = "hello" />
-    //       {twoButtons  && (
-    //         <Button imp = 'secondary' text = "bye"/>
-    //       )}
-    //     </div>
-    //     {first && (
-    //       <div className = "item__expand">
-    //       </div>
-    //     )}
-    //   </div>
-    //   </div>
+
+    <div className = "item__container">
+        <div className = "item__text">
+            <p>{title}</p>
+            <div className = "item__textDesc">
+                <p>{desc}</p>
+            </div>
+        </div>
+        <div className = 'item__lowerThird'>
+            <div className = 'item__buttons'>
+                <Button imp = 'primary' text = {leftBtnTxt} link ={leftBtnLink} />
+                {twoButtons  && (
+                    <Button imp = 'secondary' text = {rightBtntxt} link = {rightBtnLink}/>
+                )}
+            </div>
+            {first && (
+                <div className = "item__expand">
+                    <ExpandMoreIcon/>
+                </div>
+        )}
+      </div>
+      </div>
+      </div>
 
   )
 }
-export default Item;
+export default Item
